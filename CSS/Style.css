@@ -1,0 +1,43 @@
+#container
+{
+    background-color: azure;
+    padding: 20px;
+}
+.highlight
+{
+    font-weight: bold;
+    color: cadetblue;
+}
+p
+{
+    font-size: 10px;
+}
+#Contains p:nth-child(4)
+{
+    font-weight: bolder;
+    color:blueviolet;
+}
+table
+{
+    background-color:#E9CBFF;
+    border-color:#B195D2;
+}
+thead tr:nth-child(1){
+    color: cornflowerblue;
+
+}
+input[type="text"]
+{
+    border: 1px solid black;
+    padding: 5px;
+}
+#container p{
+    margin-left: 20px;
+}
+ul>li
+{
+    list-style: none;
+}
+.highlight + p {
+    color:brown;
+}

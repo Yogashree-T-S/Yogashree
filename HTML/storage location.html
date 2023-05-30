@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Api</title>
+        <script>
+            function getLocation()
+            {
+                if(navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showposition);
+                }
+                else
+                {
+                    alert("Geolocation is not supported by this browser.")
+                }
+            }
+            function showposition(position)
+            {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                document.getElementById("location").innerHTML="Latitude :" +
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+	<title>Practice</title>
+</head>
+
+<body background="./img2.jpg">
+	<h1 align="center">Patient Details</h1><br />
+	<form>
+		<label for="name">
+			<font color="#ac3973" size="5">Name :
+		</label>
+		<input type="text" id="name" name="name" required pattern="[A-Za-z]+" title="Use only alphabet"/><br /><br />
+		<img align="right" src="C:\Users\ZCSU036\Documents\MY WORKS\bg.jpg" width=650 height=450>
+		<label for="sex">Sex :</label>
+		<input type="radio" id="sex" name="sex" value="Male"><span>Male</span>
+		<input type="radio" id="sex" name="sex" value="Female"><span>Female</span><br /><br />
+		<label for="fname">Father Name : </label>
+		<input type="text" id="fname" name="fname"><br /><br />
+		<label for="mname">mother Name : </label>
+		<input type="text" id="mname" name="mname"><br><br />
+		<label for="dob">Date of Birth : </label>
+		<input type="date" id="date" name="dob"><br /><br />
+		<label for="age">Age : </label>
+		<input type="number" id="age" name="age" required min=1 max=15 title="This is children's hospital"><br /><br />
+		<label for="grp">Blood Group : </label>
+		<select>
+			<option></option>
+			<option>A+ve</option>
+			<option>B+ve</option>
+			<option>A1+ve</option>
+			<option>O+ve</option>
+			<option>A1B+ve</option>
+			<option>AB+ve</option>
+			<option>A-ve</option>
+			<option>B-ve</option>
+			<option>A1-ve</option>
+			<option>O-ve</option>
+			<option>A1B-ve</option>
+			<option>AB-ve</option>
+			<option>Others</option>
+		</select><br /><br />
+		<label for="need">Treatment Needed:</label><br />
+		<input type="checkbox" id="need" name="need"><span>Eye CheckUp</span><br />
+		<input type="checkbox" id="need" name="need"><span>Dental CheckUp</span><br />
+		<input type="checkbox" id="need" name="need"><span>Health Issues</span><br />
+		<input type="checkbox" id="need" name="need"><span>ENT</span>
+		<br /><br />
+		<label for=time>Appointment Time :</label>
+		<input type="datetime-local" name="time" id="time"><br /><br />
+		<label for="mail">Parents Mail Id : </label>
+		<input type="email" id="mail" name="mail"><br /><br />
+		<label for="addr">Address :</label>
+		<textarea type="text" id="addr" name="addr" required minlength="10" maxlength="30"></textarea>
+		<br /><br />
+
+
+		<input type="submit">
+	</form>
+</body>
+
+</html>
