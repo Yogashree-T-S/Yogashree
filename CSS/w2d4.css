@@ -1,0 +1,141 @@
+body {
+  width: "100%";
+  background-color: cadetblue;
+}
+.layout {
+  width: "100%";
+  height: 960px;
+  background-color: white;
+  gap: 25px;
+}
+.top {
+  display: flex;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 60px;
+  padding: 50px;
+  width: 40%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content h1 {
+  width: 500px;
+  margin-bottom: 5px;
+  color: #872660;
+  font-size: 50px;
+}
+
+.content p {
+  margin-top: 5px;
+  margin-bottom: -15px;
+  color: rgb(82, 77, 77);
+  font-weight: bold;
+}
+
+.rating {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.rating1,
+.rating2,
+.rating3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rating2 {
+  position: relative;
+  margin-bottom: 90px;
+  top: 1px;
+  left: 80px;
+}
+.rating3 {
+  position: relative;
+  top: 1px;
+  left: 140px;
+}
+.rating img {
+  width: 150px;
+  height: 50px;
+}
+.rating p {
+  margin-left: 10px;
+  color: darkmagenta;
+  max-width: 700px;
+  font-size: medium;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.customer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: cursive;
+}
+
+.customer1,
+.customer2,
+.customer3 {
+  border: 2px solid rgb(136, 17, 154);
+  margin: 20px;
+  background-color: #481b36;
+  border-radius: 6px;
+  padding: 30px;
+  height: 180px;
+  position: relative;
+  align-items: end;
+  margin: 10px 30px 20px 20px;
+  justify-content: space-evenly;
+  color: white;
+}
+/*.customer1 {
+  grid-row: 1 / span 2;
+}
+.customer2 {
+  grid-row: 2 / span 3;
+}
+.customer3 {
+  grid-row: 2 / span 4;
+  position: relative;
+  top: 100px;
+  margin-bottom: 20px;
+}*/
+
+.customer img {
+  width: 60px;
+  height: 60px;
+  border-radius: 80%;
+  border: 1px solid rgb(84, 34, 84);
+  margin-right: 20px;
+}
+header {
+  display: flex;
+
+  color: white;
+  justify-content: flex-start;
+  align-items: center;
+}
+h4 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 25px;
+  font-family: "Courier New", Courier, monospace;
+}
+span {
+  color: rgb(182, 28, 110);
+  margin-top: 0px;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    background-color: blueviolet;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+  }
+  .customer {
+    display: flex;
+    flex-direction: column;
+  }
+}
