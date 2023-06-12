@@ -1,0 +1,75 @@
+//Problem-1 twoSumFunction
+
+var twoSum = function(nums, target) {
+    var map = {};
+    for(var i = 0 ; i < nums.length ; i++){
+        var n = nums[i];
+
+        if(map[target-n] >= 0){
+            return [map[target-n],i]
+        } 
+        else {
+            map[n] = i;   
+        }
+    }
+};
+
+//Problem2 
+
+var searchRange = function(nums, target) {
+    var start=-1;
+    var end=-1;
+    for(i=0;i<nums.length;i++){
+        if(nums[i]==target){
+            if(start!=-1){
+                end=i;
+            }
+            else{
+                start=i;
+                end=start;
+            }
+        }
+    }
+    return [start,end];
+};
+
+//problem3
+
+var firstMissingPositive = function(nums) {
+    
+    // for(i=1;i<=nums.length+1;i++){
+    //     if(!(nums.includes(i))){
+    //         return i;
+    //     }
+    // }
+
+     let n = nums.length;
+        
+        for(let i = 0 ; i < n ; i++){
+          let value = nums[i];
+          if(value > 0 && value <= n ){
+            let before = value - 1;
+          if(nums[before] != value){
+             swap(nums , before , i);
+             i--;
+          }
+          }
+        }
+
+        for(let i=0 ; i<n ; i++){
+            if( (i+1) != nums[i]){
+                return i+1;
+            }
+        }
+
+        return n+1;
+        
+    }
+    
+
+
+    function swap ( swapArr,  i,  j){
+        let temp = swapArr[i];
+        swapArr[i] = swapArr[j];
+        swapArr[j] = temp;
+        }
