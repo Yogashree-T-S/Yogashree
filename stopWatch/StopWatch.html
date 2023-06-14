@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./StopWatch.css" />
+    <title>StopWatch</title>
+  </head>
+  <body>
+    <div class="stopWatch">
+      <h1 id="displayTime">00:00:00</h1>
+      <div class="buttons">
+        <img src="./stop.png" onclick="stop()" />
+        <!-- <button id="start" onclick="watchStart()">Start</button> -->
+        <img src="./start.png" onclick="watchStart()" />
+        <img src="./reset.png" onclick="reset()" />
+      </div>
+    </div>
+    <!-- <h1 align="center" id="lapTime"></h1> -->
+    <section class="list">
+      <ul id="mylist"></ul>
+    </section>
+    <script>
+      let [seconds, minutes, hours] = [0, 0, 0];
+      let displayTime = document.getElementById("displayTime");
+      let lapTime = document.getElementById("lapTime");
+      // let [lapHour, lapMin, lapSec] = [0, 0, 0];
+
+      let timer = null;
+      function stopWatch() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+
+        let s = seconds < 10 ? "0" + seconds : seconds;
+        displayTime.innerHTML = h + ":" + m + ":" + s;
+      }
+
+      function watchStart() {
+        if (timer !== null) {
+          clearInterval(timer);
+        }
+        timer = setInterval(stopWatch, 1000);
+      }
+      let ui = document.getElementById("mylist");
+      function stop() {
+        clearInterval(timer);
+
+        let li = document.createElement("li");
+        li.textContent = hours + ":" + minutes + ":" + seconds;
+        ui.appendChild(li);
+        // lapTime.innerHTML = hours + ":" + minutes + ":" + seconds;
+      }
+      function reset() {
+        clearInterval(timer);
+        [seconds, minutes, hours] = [0, 0, 0];
+        displayTime.innerHTML = "00:00:00";
+      }
+    </script>
+  </body>
+</html>
