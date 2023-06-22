@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+      }
+      label,
+      input {
+        margin-bottom: 10px;
+      }
+      input {
+        padding: 6px;
+      }
+
+      input[type="submit"] {
+        margin: 10px 0;
+        background-color: rgb(73, 118, 253);
+        color: white;
+        font-weight: bold;
+        border: none;
+      }
+
+      table {
+        margin-top: 10px;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+      th {
+        background-color: aquamarine;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="form">
+        <h2>Contact Form</h2>
+        <form id="myForm">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" required />
+
+          <label for="dob">Date of Birth:</label>
+          <input type="date" name="dob" id="dob" required />
+
+          <input type="submit" value="submit" />
+        </form>
+      </section>
+
+      <section class="table">
+        <table id="table" border="2">
+          <caption>
+            Table
+          </caption>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Actions</th>
+          </tr>
+        </table>
+      </section>
+      <input
+        type="submit"
+        value="Delete All"
+        id="deleteAll"
+        onclick="deleteAll(this)"
+      />
+      <section></section>
+    </main>
+
+    <script>
+      let selectedRow = null;
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          console.log("1");
+
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let dob = document.getElementById("dob").value;
+
+          console.log(name, email, dob);
+          if (selectedRow == null) {
+            insertData(name, email, dob);
+          } else {
+            updateData(name, email, dob);
+          }
+
+          document.getElementById("myForm").reset();
+        });
+
+      function insertData(name, email, dob) {
+        let table = document.getElementById("table");
+
+        let row = table.insertRow(1);
+
+        let cell0 = row.insertCell(0);
+
+        let inputCheckBox = document.createElement("INPUT");
+        inputCheckBox.setAttribute("type", "checkbox");
+        inputCheckBox.setAttribute("name", "checkbox");
+        inputCheckBox.setAttribute("onclick", "removeActions(this)");
+
+        cell0.appendChild(inputCheckBox);
+
+        let cell1 = row.insertCell(1);
+        cell1.innerHTML = name;
+        let cell2 = row.insertCell(2);
+        cell2.innerHTML = email;
+        let cell3 = row.insertCell(3);
+        cell3.innerHTML = dob;
+        let cell4 = row.insertCell(4);
+        cell4.innerHTML =
+          '<input type="button" value="Edit" onclick="edit(this)">' +
+          " " +
+          '<input type="button" value="Delete" onclick="deleteData(this)">';
+      }
+
+      function edit(btn) {
+        let row = btn.parentNode.parentNode;
+
+        selectedRow = row;
+
+        console.log("row", btn);
+        console.log("row", btn.parentNode);
+        console.log("row", row);
+
+        document.getElementById("name").value = row.cells[1].innerHTML;
+        document.getElementById("email").value = row.cells[2].innerHTML;
+        document.getElementById("dob").value = row.cells[3].innerHTML;
+
+        console.log("name", name);
+
+        let submitBtn = document.querySelector("input[type=submit]");
+        submitBtn.value = "Update";
+      }
+
+      function updateData(name, email, dob) {
+        selectedRow.cells[1].innerHTML = name;
+        selectedRow.cells[2].innerHTML = email;
+        selectedRow.cells[3].innerHTML = dob;
+
+        let submitBtn = document.querySelector("input[type=submit]");
+        submitBtn.value = "Submit";
+
+        selectedRow = null;
+      }
+
+      function deleteData(btn) {
+        let row = btn.parentNode.parentNode;
+
+        let confirmation = confirm("Are you sure you want to delete");
+
+        if (confirmation) {
+          row.parentNode.removeChild(row);
+        }
+      }
+
+      function removeActions(btn) {
+        if (btn.checked) {
+          let td = btn.parentNode.parentNode.childNodes[4];
+
+          td.parentNode.removeChild(td);
+        } else {
+          let row = btn.parentNode.parentNode;
+          let cell = row.insertCell(4);
+          cell.innerHTML =
+            '<input type="button" value="Edit" onclick="edit(this)">' +
+            " " +
+            '<input type="button" value="Delete" onclick="deleteData(this)">';
+        }
+      }
+
+      function deleteAll(btn) {
+        const markedCheckboxs = document.getElementsByName("checkbox");
+
+        var markedRows = [];
+
+        for (var i = 0; i < markedCheckboxs.length; i++) {
+          const checkbox = markedCheckboxs[i];
+          if (checkbox.checked) {
+            markedRows.push(checkbox.parentNode.parentNode);
+          }
+        }
+        for (let row in markedRows) {
+          markedRows[row].parentNode.removeChild(markedRows[row]);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+var studentDatabase=[];
+
+//function to add details in studentDatabase
+function student(name, email, phone, regId ,age) {
+  var studentDetails={
+    name:name,
+    email:email,
+    phone:phone,
+    regId:regId,
+    age:age
+    };
+    studentDatabase.push(studentDetails);
+}
+
+//Adding values
+student("Keshav","keshav@gmail.com","8907654321","REG001",23);
+student("Ranga","ranga@gmail.com","8765490321","REG002",20);
+student("Pragya","pragya@gmail.com","7654389021","REG003",13);
+student("Kishori","kishori@gmail.com","9076584321","REG004",11);
+student("Snigdha","snigdha@gmail.com","7654890321","REG005",27);
+student("Shravya","Shravya@gmail.com","9807654321","REG006",7);
+student("pragathi","pragathi@gmail.com","8654907321","REG007",9);
+student("Smitha","smitha@gmail.com","8659074321","REG008",12);
+student("Raghav","raghav@gmail.com","8954320761","REG009",30);
+student("Mahesh","mahesh@gmail.com","8932107654","REG010",45);
+student("Shree","Shree@gmail.com","8954320761","REG011",36);
+student("Krishna","krishna@gmail.com","8932107654","REG012",29);
+
+//startsWith
+var letterStarts=studentDatabase.filter(function(studentDatabase){
+  return studentDatabase.name.startsWith("K");
+})
+console.log(letterStarts);
+
+//update
+for(var i=0;i<studentDatabase.length;i++){
+  if(studentDatabase[i].regId=="REG009"){
+    studentDatabase[i].phone="4567890123";
+  }
+}
+
+studentDatabase.map(function(studentDetails){
+  if(studentDetails.regId=="REG012")
+    studentDetails.phone="1234567890";
+});
+console.log("\n--------------------------------------------\nstudents after update\n");
+console.log(studentDatabase);
+
+studentDatabase.map(function(studentDetails){
+  if(studentDetails.regId=="REG012")
+    delete studentDetails.phone;
+});
+console.log("\n--------------------------------------------\nstudents after delete\n")
+console.log(studentDatabase);
+
+console.log("\n--------------------------------------------\nRange\n");
+
+var Range=studentDatabase.filter(function(studentDatabase){
+  return studentDatabase.age >=1 && studentDatabase.age <=10;
+})
+console.log(Range);
+
+
+
+
+var upper=studentDatabase.map(function(studentDetails){
+  return studentDetails.name.toUpperCase();
+});
+
+console.log("\n UpperCase of names\n "+upper);
+
+var avail=studentDatabase.find(function(studentDetails){
+  return studentDetails.email==="Shree@gmail.com";
+})
+
+console.log("\n Details of student with email Shree@gmail.com is "+avail);
+
+var everyEmail=studentDatabase.every(function(studentDetails){
+  return studentDetails.email != undefined;
+})
+console.log("\nEveryone has email? "+everyEmail);
+
+//reduce
+
+var count=studentDatabase.reduce(function(studentDetails){
+  return studentDetails +1;
+},0)
+
+console.log("\ncount is " + count);

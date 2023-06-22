@@ -278,6 +278,7 @@ header {
   .content4 .top{
     background-color: hsl(13, 100%, 96%);
     padding-left: 3px;
+    /* width:300px; */
     
   }
   .content4 .bottom{
@@ -302,7 +303,7 @@ header {
   .footer1 .getStarted{
     margin:30px auto;
   }
-  .footer2{
+  /* .footer2{
     width:fit-content;
     grid-template-areas: "foot4","foot4"
     "foot2","foot3"
@@ -327,5 +328,9 @@ header {
   }
   #id{
     grid-area: copyr;
+  } */
+  .footer2{
+    flex-direction: column;
+    width:387px;
   }
 }

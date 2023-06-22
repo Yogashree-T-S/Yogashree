@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Testing</h2>
+    <script>
+      function testing() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            const test1 = "testing1 successful";
+            resolve(test1);
+          }, 2000);
+        });
+      }
+      function nextTesting() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            const test2 = "testing2 successful";
+            resolve(test2);
+          }, 2000);
+        });
+      }
+      async function execute() {
+        try {
+          const test1 = await testing();
+          const test2 = await nextTesting();
+          console.log(test);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      execute();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    /* width: 100%; */
+    margin: 0 auto;
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.countries{
+    max-width: 1240px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.country-div{
+    background: #c5e7f5;
+    border: 1px solid burlywood;
+    padding: 15px;
+}
+img{
+    width: 100%;
+    height: 150px;
+}
+.popupbg{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(201, 201, 201, 0.483);
+    z-index: 999;
+}
+ .popup{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    background-color: rgba(248, 214, 234, 0.927);
+    font-size: 12px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+}
+
+.loader{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 4px solid #e05bc3;
+    border-radius: 50%;
+    border-top:  5px solid rgba(114, 114, 183, 0.943);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#closeIcon{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+#closeIcon:hover{
+    background-color: rgb(240, 39, 39);
+}
+#arrange{
+display:flex;
+}
+#arrange h4{
+    margin-left: 10px;
+}
+@media screen and (max-width: 750px){
+    .countries{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 575px){
+    .countries{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 450px){
+    .countries{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

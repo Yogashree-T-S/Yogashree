@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.ulist {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+  padding: 10px 100px;
+  background-color: rgb(74, 66, 66);
+  list-style-type: none;
+}
+.ulist a {
+  color: white;
+}
+a {
+  opacity: 80%;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.shop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  padding: 12px;
+}
+.shop a {
+  color: rgb(5, 130, 171);
+  font-family: "Times New Roman", Times, serif;
+  font-size: medium;
+  font-weight: lighter;
+}
+.gridContainer {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 40vh 30vh 30vh;
+  grid-gap: 10px;
+  grid-template-areas:
+    "img1 img1"
+    "img2 img2"
+    "img3 img3"
+    "img4 img5"
+    "img6 img7"
+    "img8 img9";
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+.Apple {
+  grid-area: img1;
+}
+.iphone14Pro {
+  grid-area: img2;
+}
+.iphone14 {
+  grid-area: img3;
+}
+.watch {
+  grid-area: img4;
+}
+.ipad {
+  grid-area: img5;
+}
+.MacBook {
+  grid-area: img6;
+}
+.AppleWatch {
+  grid-area: img7;
+}
+.ipadpro {
+  grid-area: img8;
+}
+.homePod {
+  grid-area: img9;
+}
+.Apple img {
+  object-fit: cover;
+  width: 100%;
+}
+/*
+.iphone14Pro {
+  grid-area: img2;
+}
+.iphone14 {
+  grid-area: img3;
+}
+.watch {
+  grid-area: img4;
+}
+.ipad {
+  grid-area: img5;
+}
+.MacBook {
+  grid-area: img6;
+}
+.AppleWatch {
+  grid-area: img7;
+}
+.ipadpro {
+  grid-area: img8;
+}
+.homePod {
+  grid-area: img9;
+}*/

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling form and table</title>
+    <link rel="stylesheet" href="../CSS/project-9-6.css" />
+  </head>
+  <body>
+    <header id="heading">
+      <h2>Personal Data</h2>
+    </header>
+    <main>
+      <section id="form">
+        <form>
+          <div>
+            <label for="name">Name: </label>
+            <input
+              type="text"
+              id="Name"
+              name="name"
+              required
+              pattern="[A-Za-z]+"
+            />
+          </div>
+          <div>
+            <label for="mail">Email: </label>
+            <input type="email" id="Email" name="mail" />
+          </div>
+          <div>
+            <label for="age">Age : </label>
+            <input type="number" id="Age" name="age" />
+          </div>
+          <div>
+            <label for="dob">Date Of Birth :</label>
+            <input type="date" id="Dob" name="dob" />
+          </div>
+          <div>
+            <input
+              type="submit"
+              id="submit"
+              name="Submit"
+              value="Submit"
+              onclick="insertData(event)"
+            />
+          </div>
+        </form>
+      </section>
+      <br /><br />
+      <!-- <section id="table-sectionRow"> -->
+      <table border="2px" id="table">
+        <tr>
+          <!-- <th>S.No.</th> -->
+          <th></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Date Of Birth</th>
+          <th>Options</th>
+        </tr>
+      </table>
+      <div>
+        <input
+          type="button"
+          id="deleteAll"
+          value="Delete All"
+          onclick="deleteAllData()"
+        />
+      </div>
+      <!-- </section> -->
+    </main>
+
+    <script>
+      var nameArr = [];
+      var emailArr = [];
+      var ageArr = [];
+      var DOBArr = [];
+
+      var rowIndex = 1;
+
+      function insertData(event) {
+        if (
+          event.target.needToUpdate == null ||
+          event.target.needToUpdate == undefined
+        ) {
+          var table = document.getElementById("table");
+          // updateTabelSection(table)
+          var addRow = table.insertRow(rowIndex);
+
+          const dataIndex = rowIndex - 1;
+
+          nameArr.push(document.getElementById("Name").value);
+          emailArr.push(document.getElementById("Email").value);
+          ageArr.push(document.getElementById("Age").value);
+          DOBArr.push(document.getElementById("Dob").value);
+
+          var cell0 = addRow.insertCell(0);
+          var cell1 = addRow.insertCell(1);
+          var cell2 = addRow.insertCell(2);
+          var cell3 = addRow.insertCell(3);
+          var cell4 = addRow.insertCell(4);
+          var cell5 = addRow.insertCell(5);
+
+          // cell0.innerHTML = rowIndex;
+          cell1.innerHTML = nameArr[dataIndex];
+          cell2.innerHTML = emailArr[dataIndex];
+          cell3.innerHTML = ageArr[dataIndex];
+          cell4.innerHTML = DOBArr[dataIndex];
+
+          var inputCheckBox = document.createElement("INPUT");
+          inputCheckBox.setAttribute("type", "checkbox");
+
+          cell0.appendChild(inputCheckBox);
+
+          const editButton = document.createElement("Button");
+          editButton.index = dataIndex;
+          editButton.innerHTML = "Edit";
+          editButton.setAttribute("type", "editButton");
+          editButton.setAttribute("id", "edit");
+          editButton.setAttribute(
+            "onclick",
+            "editRow(event,table)"
+          );
+
+          cell5.appendChild(editButton);
+          const deleteButton = document.createElement("Button");
+
+          deleteButton.innerHTML = "Delete";
+          deleteButton.index = rowIndex;
+          deleteButton.setAttribute("type", "deleteButton");
+          deleteButton.setAttribute("id", "delete");
+          deleteButton.setAttribute("name", "Delete");
+          deleteButton.setAttribute(
+            "onclick",
+            "deleteRow(this,table)"
+          );
+
+          cell5.appendChild(deleteButton);
+          rowIndex++;
+        } else {
+          updateTabel(event.target.needToUpdate);
+          delete event.target.needToUpdate;
+
+          var button = document.getElementById("submit");
+          button.value = "Submit";
+        }
+        event.preventDefault();
+      }
+
+      function editRow(event, table) {
+        var index = event.target.index;
+        document.getElementById("Name").value = nameArr[index];
+        document.getElementById("Email").value = emailArr[index];
+        document.getElementById("Age").value = ageArr[index];
+        document.getElementById("Dob").value = DOBArr[index];
+
+        var button = document.getElementById("submit");
+        button.needToUpdate = index;
+        button.value = "Update";
+      }
+
+      function updateTabel(index) {
+        var table = document.getElementById("table");
+        const cells = table.rows.item(index + 1).cells;
+        const dataIndex = index - 1;
+
+        nameArr[dataIndex] = document.getElementById("Name").value;
+        emailArr[dataIndex] =
+          document.getElementById("Email").value;
+        ageArr[dataIndex] = document.getElementById("Age").value;
+        DOBArr[dataIndex] = document.getElementById("Dob").value;
+
+        cells[1].innerHTML = nameArr[dataIndex];
+        cells[2].innerHTML = emailArr[dataIndex];
+        cells[3].innerHTML = ageArr[dataIndex];
+        cells[4].innerHTML = DOBArr[dataIndex];
+      }
+
+      function deleteRow(self, table) {
+        nameArr.splice(self.index - 1, 1);
+        emailArr.splice(self.index - 1, 1);
+        ageArr.splice(self.index - 1, 1);
+        DOBArr.splice(self.index - 1, 1);
+
+        table.deleteRow(self.index);
+      }
+
+      function deleteAllData() {
+        var table = document.getElementById("table");
+
+        for (i = 1; i < table.rows.length; i++) {
+          const cell0 = table.rows.item(i).cells[0];
+
+          if (cell0.checked) {
+            this.index = i;
+            deleteRow(this, table);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
+            <!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling form and table</title>
+    <link rel="stylesheet" href="../CSS/project-9-6.css" />
+  </head>
+  <body>
+    <header id="heading">
+      <h2>Personal Data</h2>
+    </header>
+    <main>
+      <section id="form">
+        <form>
+          <div>
+            <label for="name">Name: </label>
+            <input
+              type="text"
+              id="Name"
+              name="name"
+              required
+              pattern="[A-Za-z]+"
+            />
+          </div>
+          <div>
+            <label for="mail">Email: </label>
+            <input type="email" id="Email" name="mail" />
+          </div>
+          <div>
+            <label for="age">Age : </label>
+            <input type="number" id="Age" name="age" />
+          </div>
+          <div>
+            <label for="dob">Date Of Birth :</label>
+            <input type="date" id="Dob" name="dob" />
+          </div>
+          <div>
+            <input
+              type="submit"
+              id="submit"
+              name="Submit"
+              value="Submit"
+              onclick="insertData(event)"
+            />
+          </div>
+        </form>
+      </section>
+      <br /><br />
+       <section id="table-sectionRow">
+      <table border="2px" id="table">
+        <tr>
+          <th>S.No.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Date Of Birth</th>
+        </tr>
+      </table>
+       </section>
+    </main>
+
+    <script>
+      var nameArr = [];
+      var emailArr = [];
+      var ageArr = [];
+      var DOBArr = [];
+
+      var rowIndex = 1;
+      var dataIndex = 0;
+
+      function insertData(event) {
+        var table = document.getElementById("table");
+        var addRow = table.insertRow(rowIndex);
+
+        nameArr.push(document.getElementById("Name").value);
+        emailArr.push(document.getElementById("Email").value);
+        ageArr.push(document.getElementById("Age").value);
+        DOBArr.push(document.getElementById("Dob").value);
+
+        var cell0 = addRow.insertCell(0);
+        var cell1 = addRow.insertCell(1);
+        var cell2 = addRow.insertCell(2);
+        var cell3 = addRow.insertCell(3);
+        var cell4 = addRow.insertCell(4);
+        var cell5 = addRow.insertCell(5);
+
+        cell0.innerHTML = rowIndex;
+        cell1.innerHTML = nameArr[dataIndex];
+        cell2.innerHTML = emailArr[dataIndex];
+        cell3.innerHTML = ageArr[dataIndex];
+        cell4.innerHTML = DOBArr[dataIndex];
+
+        let editButton = document.createElement("Button");
+
+        editButton.setAttribute("type", "editButton");
+        editButton.setAttribute("value", "Edit");
+        editButton.setAttribute("id", "edit");
+        editButton.setAttribute("onclick", "editRow(this)");
+
+        cell5.appendChild(editButton);
+        let deleteButton = document.createElement("Button");
+
+        deleteButton.setAttribute("type", "deleteButton");
+        deleteButton.setAttribute("value", "Delete");
+        deleteButton.setAttribute("id", "delete");
+        deleteButton.setAttribute("name", "Delete");
+        deleteButton.setAttribute("onclick", "deleteRow(this)");
+
+        cell5.appendChild(deleteButton);
+        rowIndex++;
+        dataIndex++;
+
+        event.preventDefault();
+      }
+
+      function editRow(event) {}
+      function deleteRow(event) {}
+    </script>
+  </body>
+</html> -->
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+      }
+      label,
+      input {
+        margin-bottom: 10px;
+      }
+      input {
+        padding: 6px;
+      }
+
+      input[type="submit"] {
+        margin: 10px 0;
+        background-color: rgb(73, 118, 253);
+        color: white;
+        font-weight: bold;
+        border: none;
+      }
+
+      table {
+        margin-top: 10px;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+      th {
+        background-color: aquamarine;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="form">
+        <h2>Contact Form</h2>
+        <form id="myForm">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" required />
+
+          <label for="dob">Date of Birth:</label>
+          <input type="date" name="dob" id="dob" required />
+
+          <input type="submit" value="submit" />
+        </form>
+      </section>
+
+      <section class="table">
+        <table id="table" border="2">
+          <caption>
+            Table
+          </caption>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Actions</th>
+          </tr>
+        </table>
+      </section>
+      <input
+        type="submit"
+        value="Delete All"
+        id="deleteAll"
+        onclick="deleteAll(this)"
+      />
+      <section></section>
+    </main>
+
+    <script>
+      let selectedRow = null;
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          console.log("1");
+
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let dob = document.getElementById("dob").value;
+
+          console.log(name, email, dob);
+          if (selectedRow == null) {
+            insertData(name, email, dob);
+          } else {
+            updateData(name, email, dob);
+          }
+
+          document.getElementById("myForm").reset();
+        });
+
+      function insertData(name, email, dob) {
+        let table = document.getElementById("table");
+
+        let row = table.insertRow(1);
+
+        let cell0 = row.insertCell(0);
+
+        let inputCheckBox = document.createElement("INPUT");
+        inputCheckBox.setAttribute("type", "checkbox");
+        inputCheckBox.setAttribute("name", "checkbox");
+        inputCheckBox.setAttribute("onclick", "removeActions(this)");
+
+        cell0.appendChild(inputCheckBox);
+
+        let cell1 = row.insertCell(1);
+        cell1.innerHTML = name;
+        let cell2 = row.insertCell(2);
+        cell2.innerHTML = email;
+        let cell3 = row.insertCell(3);
+        cell3.innerHTML = dob;
+        let cell4 = row.insertCell(4);
+        cell4.innerHTML =
+          '<input type="button" value="Edit" onclick="edit(this)">' +
+          " " +
+          '<input type="button" value="Delete" onclick="deleteData(this)">';
+      }
+
+      function edit(btn) {
+        let row = btn.parentNode.parentNode;
+
+        selectedRow = row;
+
+        console.log("row", btn);
+        console.log("row", btn.parentNode);
+        console.log("row", row);
+
+        document.getElementById("name").value = row.cells[1].innerHTML;
+        document.getElementById("email").value = row.cells[2].innerHTML;
+        document.getElementById("dob").value = row.cells[3].innerHTML;
+
+        console.log("name", name);
+
+        let submitBtn = document.querySelector("input[type=submit]");
+        submitBtn.value = "Update";
+      }
+
+      function updateData(name, email, dob) {
+        selectedRow.cells[1].innerHTML = name;
+        selectedRow.cells[2].innerHTML = email;
+        selectedRow.cells[3].innerHTML = dob;
+
+        let submitBtn = document.querySelector("input[type=submit]");
+        submitBtn.value = "Submit";
+
+        selectedRow = null;
+      }
+
+      function deleteData(btn) {
+        let row = btn.parentNode.parentNode;
+
+        let confirmation = confirm("Are you sure you want to delete");
+
+        if (confirmation) {
+          row.parentNode.removeChild(row);
+        }
+      }
+
+      function removeActions(btn) {
+        if (btn.checked) {
+          let td = btn.parentNode.parentNode.childNodes[4];
+
+          td.parentNode.removeChild(td);
+        } else {
+          let row = btn.parentNode.parentNode;
+          let cell = row.insertCell(4);
+          cell.innerHTML =
+            '<input type="button" value="Edit" onclick="edit(this)">' +
+            " " +
+            '<input type="button" value="Delete" onclick="deleteData(this)">';
+        }
+      }
+
+      function deleteAll(btn) {
+        var markedCheckboxs = document.getElementsByName("checkbox");
+
+        for (var i = 0; i < markedCheckboxs.length; i++) {
+          const checkbox = markedCheckboxs[i];
+          if (checkbox.checked) {
+            let row = checkbox.parentNode.parentNode;
+
+            row.parentNode.removeChild(row);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling form and table</title>
+    <link rel="stylesheet" href="../CSS/project-9-6.css" />
+  </head>
+  <body>
+    <header id="heading">
+      <h2>Personal Data</h2>
+    </header>
+    <main>
+      <section id="form">
+        <form>
+          <div>
+            <label for="name">Name: </label>
+            <input
+              type="text"
+              id="Name"
+              name="name"
+              required
+              pattern="[A-Za-z]+"
+            />
+          </div>
+          <div>
+            <label for="mail">Email: </label>
+            <input type="email" id="Email" name="mail" />
+          </div>
+          <div>
+            <label for="age">Age : </label>
+            <input type="number" id="Age" name="age" />
+          </div>
+          <div>
+            <label for="dob">Date Of Birth :</label>
+            <input type="date" id="Dob" name="dob" />
+          </div>
+          <div>
+            <input
+              type="submit"
+              id="submit"
+              name="Submit"
+              value="Submit"
+              onclick="insertData(event)"
+            />
+          </div>
+        </form>
+      </section>
+      <br /><br />
+      
+      <table border="2px" id="table">
+        <tr>
+          
+          <th></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Date Of Birth</th>
+          <th>Options</th>
+        </tr>
+      </table>
+      <div>
+        <input
+          type="button"
+          id="deleteAll"
+          value="Delete All"
+          onclick="deleteAllData()"
+        />
+      </div>
+      
+    </main>
+
+    <script>
+      var nameArr = [];
+      var emailArr = [];
+      var ageArr = [];
+      var DOBArr = [];
+
+      var rowIndex = 1;
+
+      function insertData(event) {
+        if (
+          event.target.needToUpdate == null ||
+          event.target.needToUpdate == undefined
+        ) {
+          var table = document.getElementById("table");
+          // updateTabelSection(table)
+          var addRow = table.insertRow(rowIndex);
+
+          const dataIndex = rowIndex - 1;
+
+          nameArr.push(document.getElementById("Name").value);
+          emailArr.push(document.getElementById("Email").value);
+          ageArr.push(document.getElementById("Age").value);
+          DOBArr.push(document.getElementById("Dob").value);
+
+          var cell0 = addRow.insertCell(0);
+          var cell1 = addRow.insertCell(1);
+          var cell2 = addRow.insertCell(2);
+          var cell3 = addRow.insertCell(3);
+          var cell4 = addRow.insertCell(4);
+          var cell5 = addRow.insertCell(5);
+
+          // cell0.innerHTML = rowIndex;
+          cell1.innerHTML = nameArr[dataIndex];
+          cell2.innerHTML = emailArr[dataIndex];
+          cell3.innerHTML = ageArr[dataIndex];
+          cell4.innerHTML = DOBArr[dataIndex];
+
+          var inputCheckBox = document.createElement("INPUT");
+          inputCheckBox.index = rowIndex;
+          inputCheckBox.setAttribute("type", "checkbox");
+          inputCheckBox.setAttribute("name", "checkbox");
+          inputCheckBox.setAttribute("id", "check");
+          cell0.appendChild(inputCheckBox);
+
+          const editButton = document.createElement("Button");
+          editButton.index = dataIndex;
+          editButton.innerHTML = "Edit";
+          editButton.setAttribute("type", "editButton");
+          editButton.setAttribute("id", "edit");
+          editButton.setAttribute("onclick", "editRow(event,table)");
+
+          cell5.appendChild(editButton);
+          const deleteButton = document.createElement("Button");
+
+          deleteButton.innerHTML = "Delete";
+          deleteButton.index = rowIndex;
+          deleteButton.setAttribute("type", "deleteButton");
+          deleteButton.setAttribute("id", "delete");
+          deleteButton.setAttribute("name", "Delete");
+          deleteButton.setAttribute("onclick", "deleteRow(this,table)");
+
+          cell5.appendChild(deleteButton);
+          rowIndex++;
+        } else {
+          updateTabel(event.target.needToUpdate);
+          delete event.target.needToUpdate;
+
+          var button = document.getElementById("submit");
+          button.value = "Submit";
+        }
+        event.preventDefault();
+        resetForm();
+      }
+      function resetForm() {
+        document.getElementById("Name").value = "";
+        document.getElementById("Email").value = "";
+        document.getElementById("Age").value = "";
+        document.getElementById("Dob").value = "";
+      }
+
+      function editRow(event, table) {
+        var index = event.target.index;
+        document.getElementById("Name").value = nameArr[index];
+        document.getElementById("Email").value = emailArr[index];
+        document.getElementById("Age").value = ageArr[index];
+        document.getElementById("Dob").value = DOBArr[index];
+
+        var button = document.getElementById("submit");
+        button.needToUpdate = index;
+        button.value = "Update";
+      }
+
+      function updateTabel(index) {
+        var table = document.getElementById("table");
+        const cells = table.rows.item(index + 1).cells;
+        const dataIndex = index - 1;
+
+        nameArr[dataIndex] = document.getElementById("Name").value;
+        emailArr[dataIndex] = document.getElementById("Email").value;
+        ageArr[dataIndex] = document.getElementById("Age").value;
+        DOBArr[dataIndex] = document.getElementById("Dob").value;
+
+        cells[1].innerHTML = nameArr[dataIndex];
+        cells[2].innerHTML = emailArr[dataIndex];
+        cells[3].innerHTML = ageArr[dataIndex];
+        cells[4].innerHTML = DOBArr[dataIndex];
+      }
+
+      function deleteRow(self, table) {
+        nameArr.splice(self.index - 1, 1);
+        emailArr.splice(self.index - 1, 1);
+        ageArr.splice(self.index - 1, 1);
+        DOBArr.splice(self.index - 1, 1);
+
+        table.deleteRow(self.index);
+      }
+
+      function deleteAllData(elem) {
+        var checked = document.querySelectorAll(".check:checked");
+        checked.forEach((elem) => {
+          elem.parentElement.parentElement.style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html> -->

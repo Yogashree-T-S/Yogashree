@@ -1,0 +1,100 @@
+//using parseInt
+
+//binary to decimal
+
+var binaryNum=1101;
+var decimalNum=parseInt(binaryNum,2);
+console.log(decimalNum +" is the decimal value of "+binaryNum);
+
+//decimal to binary
+
+var decimalNum=4;
+var binaryNum=decimalNum.toString(2);
+console.log(binaryNum +" is the binary value of "+decimalNum);
+
+//decimal to octal
+
+var decimalNum=2467;
+var hexaDecNum=decimalNum.toString(16);
+console.log(hexaDecNum +" is the hexaDecimal value of "+decimalNum);
+
+//decimal to hexadecimal
+var decimalNum=12;
+var octalNum=decimalNum.toString(8);
+console.log(octalNum +" is the octal value of "+decimalNum);
+
+
+//decimal to binary using while loop
+
+var decimal=11;
+var temp="";
+var rem;
+while(decimal != 0){
+  rem=decimal%2;
+  decimal=parseInt(decimal/2);
+  temp=rem+temp;
+}
+console.log(temp);
+
+//binary to decimal using loop
+
+var decimal=0;
+var bin="1010";
+var pow=0
+for(var i=bin.length-1;i>=0;i--){
+  decimal+=(bin[i]*(2**pow));
+  pow++;
+}
+console.log(decimal);
+
+
+//decimal to binary using function
+var decimal=11;
+function converter(decimal){
+  if(decimal==0){
+    return 0;
+  }
+  else if(decimal==1){
+    return 1;
+  }
+  else{
+    return converter(parseInt(decimal/2)) + (decimal%2).toString();
+  }
+}
+console.log(converter(decimal));
+
+//concatenating string
+
+var a="Apple";
+var b="banana";
+for(var i=0;i<a.length&&i<b.length;i++){
+  process.stdout.write(a[i]+" "+b[i]+" ");
+}
+while(i<a.length){
+  process.stdout.write(a[i]+" ");
+  i++;
+}
+while(i<b.length){
+  process.stdout.write(b[i]+" ");
+  i++;
+}
+
+
+//Concadinating more than two strings
+
+var str="Aaaaa Bbb Oooooooo Pppp"
+var strArr=String(str).split(" ");
+var max=strArr[0].length;
+for(var i=1;i<strArr.length;i++){
+  if(max<strArr[i].length){
+    max=strArr[i].length;
+  }
+}
+for(var j=0;j<max;j++){
+  for(var k=0;k<strArr.length;k++){
+    if(j<strArr[k].length){
+      process.stdout.write(strArr[k][j]+" ");
+    }
+  }
+}
+

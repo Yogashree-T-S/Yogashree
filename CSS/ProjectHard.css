@@ -1,0 +1,162 @@
+.sec1 {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  row-gap: 100px;
+  column-gap: 20px;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+button {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: medium;
+}
+.sec2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sec3 {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.para {
+  flex-direction: column;
+  font-size: 75px;
+}
+section {
+  opacity: 50%;
+  font-size: 20px;
+}
+.cap {
+  font-size: 40px;
+}
+.opacity {
+  opacity: 50%;
+}
+.section2 {
+  background-color: rgb(3, 3, 53);
+}
+
+.con {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.photo2 {
+  position: relative;
+  bottom: 55px;
+}
+.section2 {
+  display: flex;
+  border-radius: 3%;
+}
+p {
+  color: white;
+  font-size: 25px;
+}
+.con2 {
+  font-size: 25px;
+}
+.con1 {
+  text-justify: center;
+  font-size: 50px;
+}
+.photo {
+  display: block;
+}
+.photo1 {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    display: block;
+  }
+  .container {
+    display: grid;
+    row-gap: 50px;
+    column-gap: 20px;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .photo2 {
+    position: relative;
+    bottom: 300px;
+  }
+  .sec1 {
+    justify-content: space-evenly;
+  }
+  .sec2 {
+    display: grid;
+    row-gap: 10px;
+    justify-content: space-evenly;
+  }
+  .para {
+    flex-direction: column;
+    font-size: 50px;
+    row-gap: 10px;
+  }
+
+  .opacity {
+    opacity: 50%;
+  }
+  .sec3 {
+    display: grid;
+    text-align: center;
+    grid-gap: 30px;
+  }
+  .section2 {
+    display: grid;
+    border-radius: 3%;
+    margin-top: 300px;
+  }
+  .con {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    row-gap: 20px;
+    text-align: center;
+    margin-top: -300px;
+    margin-bottom: 50px;
+  }
+  .con2 {
+    font-size: 25px;
+  }
+  .con1 {
+    text-justify: center;
+    font-size: 50px;
+  }
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+  .photo {
+    display: none;
+  }
+  .photo1 {
+    display: block;
+  }
+  .cap {
+    font-size: 70px;
+  }
+}

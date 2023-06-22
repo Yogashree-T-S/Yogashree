@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling form and table</title>
+    <link rel="stylesheet" href="data.css" />
+  </head>
+  <body>
+    <header id="heading">
+      <h2>Personal Data</h2>
+    </header>
+    <main>
+      <section id="form">
+        <form>
+          <div>
+            <label for="name">Name &emsp; &emsp; &nbsp;: </label>
+            <input
+              type="text"
+              id="Name"
+              name="name"
+              required
+              pattern="[A-Za-z]+"
+            />
+          </div>
+          <div>
+            <label for="mail">Email &emsp; &emsp; &nbsp;: </label>
+            <input type="email" id="Email" name="mail" />
+          </div>
+          <div>
+            <label for="age">Age &emsp; &emsp; &ensp; &nbsp; : </label>
+            <input type="number" id="Age" name="age" />
+          </div>
+          <div>
+            <label for="food">Food type &emsp; : </label>
+            <input type="radio" id="vegan" name="food" /><span>Vegan</span>
+            <input type="radio" id="veg" name="food" /><span>Vegetarian</span>
+            <input type="radio" id="nonveg" name="food" /><span
+              >Non-Vegetarian</span
+            >
+          </div>
+          <div>
+            <label for="Department">Department &nbsp; : </label>
+            <select id="Department">
+              <option value="cs">Computer Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="English">English</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Economics">Economics</option>
+              <option value="Biology">Biology</option>
+              <option value="Botony">Botony</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Botony">Botony</option>
+              <option value="Zoology">Zoology</option>
+            </select>
+          </div>
+          <div>
+            <label for="description">Description &nbsp; : </label>
+            <textarea
+              translate="yes"
+              id="description"
+              name="description"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <input type="submit" id="submit" name="Submit" value="Submit" />
+            <input type="reset" id="reset" name="Reset" value="Reset" />
+          </div>
+        </form>
+      </section>
+      <section id="table">
+        <table border="2" width="600" height="150">
+          <caption>
+            Details
+          </caption>
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Food</th>
+              <th>Department</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr></tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

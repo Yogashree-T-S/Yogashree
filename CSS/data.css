@@ -1,100 +1,88 @@
-body
-{
-    background-color: darksalmon;
+body {
+  background-color: darksalmon;
 }
-#heading
-{
-    font-weight: bolder;
-    text-align: center;
-    background-color: cadetblue;
-    padding: 5px 5px 20px 5px;
-    height: 40px;
+#heading {
+  font-weight: bolder;
+  text-align: center;
+  background-color: cadetblue;
+  padding: 5px 5px 20px 5px;
+  height: 40px;
 }
-#form
-{
-    background-color: bisque;
-    padding: 20px;
+#form {
+  background-color: bisque;
+  padding: 20px;
 }
-form
-{
-    background-color:lavenderblush ;
-    text-align:justify;
-    padding :30px;
-    font-size: large;
-    font-style: oblique;
-    font-weight:bolder;
+form {
+  background-color: lavenderblush;
+  text-align: justify;
+  padding: 30px;
+  font-size: large;
+  font-style: oblique;
+  font-weight: bolder;
 }
-#Name
-{
-    padding: 5px;
-    margin:20px 0px 0px 20px;
+#Name {
+  padding: 5px;
+  margin: 20px 0px 0px 20px;
 }
-#Email
-{
-    padding: 5px;
-    margin:20px 0px 0px 20px;
+#Email {
+  padding: 5px;
+  margin: 20px 0px 0px 20px;
 }
-#Age
-{
-    padding: 5px;
-    margin:20px 0px 0px 20px;
+#Age {
+  padding: 5px;
+  margin: 20px 0px 0px 20px;
 }
-#Department
-{
-    padding: 5px;
-    margin:20px 0px 0px 22px;
+#Department {
+  padding: 5px;
+  margin: 20px 0px 0px 22px;
 }
-#description
-{
-    padding: 5px;
-    margin:20px 0px 0px 23px;
+#description {
+  padding: 5px;
+  margin: 20px 0px 0px 23px;
 }
-#vegan,#veg,#nonveg
-{
-    padding: 5px;
-    margin:20px 0px 0px 50px;
+#vegan,
+#veg,
+#nonveg {
+  padding: 5px;
+  margin: 20px 0px 0px 50px;
 }
-input:hover
-{
-    border: 1px solid rgb(181, 65, 65);
+input:hover {
+  border: 1px solid rgb(181, 65, 65);
 }
-#submit,#reset
-{
-    padding:7px;
-    margin:30px 0px 0px 50px;
-    margin-inline: 80px;
-    font-size: large;
-    font-style: normal;
-    font-weight: bold;
+#submit,
+#reset {
+  padding: 7px;
+  margin: 30px 0px 0px 50px;
+  margin-inline: 80px;
+  font-size: large;
+  font-style: normal;
+  font-weight: bold;
 }
-input[type="reset"]:hover,[type="submit"]:hover
-{
-    background-color: chocolate;
-    font-family: monospace;
-    border: 3px solid blueviolet;
+input[type="reset"]:hover,
+[type="submit"]:hover {
+  background-color: chocolate;
+  font-family: monospace;
+  border: 3px solid blueviolet;
 }
 
-#table
-{
-    background-color:cornflowerblue;
-    padding:30px;
-    font-family:'Times New Roman', Times, serif;
-    font-size: larger;
+#table {
+  background-color: cornflowerblue;
+  padding: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: larger;
 }
-table
-{
-    background-color:aliceblue;
-    align : center;
-    border-color:darkslategray;
-    margin-left: 200px;
-    font-size: medium;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+table {
+  background-color: aliceblue;
+  align: center;
+  border-color: darkslategray;
+  margin-left: 200px;
+  font-size: medium;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-th
-{
-    background-color: cadetblue;
+th {
+  background-color: cadetblue;
 }
-tr:nth-child(3) 
-{
-    background-color:aquamarine;
+tr:nth-child(even) {
+  background-color: aquamarine;
 }

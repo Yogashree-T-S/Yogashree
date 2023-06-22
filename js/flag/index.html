@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Flag</title>
+    <link  rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Country Flag Search</h1>
+    <form class="formId">
+        <input type="text" name="Box" id="Box" placeholder="Enter Country Name">
+        <input type="button" name="Search" id="Search" value="Search"> 
+    </form>
+    <div class="countries" id="countries"></div>
+    
+    <div id="loader" class="loader"></div>
+    <div id="popupbg" class="popupbg"></div>
+    
+    <div id="popup" class="popup">
+        <span id="closeIcon">&times;</span>
+         <h4 id="Population"></h4>
+        <h4 id="Region"></h4>
+        <h4 id="Capital"></h4> 
+    </div> 
+    <!-- <div class=" " id=" "></div> -->
+    <!-- <section id="flagForm"></section>
+    <section id="countryFlag"></section>  -->
+    <script src="./app.js"></script>
+</body>
+</html>
+
+<!-- <hr>
+        <h4>Population: ${country.population}</h4>
+        <h4>Regoin: ${country.region}</h4>
+        <h4>Capital: ${country.capital}</h4> 
+    <div id="popup" class="popup">
+                <span id="closeIcon">&times;</span>
+                <div id="arrange">
+                    <div>
+                        <img src="${country.flags.png}">
+                    </div>
+                    <div>
+                        <h4>Population: ${country.population}</h4>
+                        <h4>Region: ${country.region}</h4>
+                        <h4>Capital: ${country.capital}</h4>
+                    </div>
+                </div>
+            </div>-->

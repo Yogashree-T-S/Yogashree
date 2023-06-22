@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  overflow-y: scroll;
+}
+/* Designing nav*/
+.nav-container {
+  background: rgba(0, 0, 0, 0.8);
+  height: 44px;
+  z-index: 300;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  opacity: 90%;
+}
+.nav-container nav {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0 8px;
+  height: 100%;
+}
+nav .nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+}
+nav .nav-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  opacity: 0.9;
+  transition: opacity 400ms;
+}
+nav .desktop-nav li a:hover {
+  opacity: 1;
+}
+.Link-logo {
+  background: url(../Assets/AppleAssets/AppleLogo.png);
+  display: block;
+  background-position: center;
+  height: 44px;
+  background-size: 18px;
+  width: 20px;
+  background-repeat: no-repeat;
+}
+.Link-search {
+  background: url(../Assets/AppleAssets/searchIcon.png);
+  display: block;
+  background-position: center;
+  background-size: 18px;
+  height: 44px;
+  background-size: 15px;
+  width: 20px;
+  background-repeat: no-repeat;
+}
+.Link-bag {
+  background: url(../Assets/AppleAssets/bagIcon.jpg);
+  background-color: black;
+  fill-opacity: 90%;
+  display: block;
+  background-position: center;
+  height: 44px;
+  background-size: 22px;
+  width: 25px;
+  background-repeat: no-repeat;
+}
+
+/* main starts*/
+
+/* information */
+
+.information {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  */
+  font-weight: bolder;
+  opacity: 97%;
+  font-size: 14px;
+  margin-top: 45px;
+  padding: 12px;
+}
+.information a {
+  color: rgb(7, 104, 136);
+  font-size: medium;
+  font-size: 14px;
+  font-weight: lighter;
+  text-decoration: none;
+}
+
+/* Arranging images */
+
+.gridContainer {
+  /* width: 1000px*/
+  display: grid;
+  grid-template-areas:
+    "img1 img1"
+    "img2 img2"
+    "img3 img3"
+    "img4 img5"
+    "img6 img7"
+    "img8 img9";
+  grid-gap: 13px;
+  /*background-color: #2196f3;*/
+  /*padding: 10px;*/
+}
+.Apple {
+  grid-area: img1;
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
+.iphone14Pro {
+  grid-area: img2;
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
+.iphone14 {
+  grid-area: img3;
+}
+.watch {
+  grid-area: img4;
+  padding: 0px 15px;
+}
+.ipad {
+  grid-area: img5;
+  padding: 0px 15px;
+}
+.MacBook {
+  grid-area: img6;
+  padding: 0px 15px;
+}
+.AppleWatch {
+  grid-area: img7;
+  padding: 0px 15px;
+}
+.ipadPro {
+  grid-area: img8;
+  padding: 0px 15px;
+}
+.homePod {
+  grid-area: img9;
+  padding: 0px 15px;
+}
+.gridContainer img {
+  object-fit: cover;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0px;
+}
+
+/** Apple **/
+.Apple img {
+  height: 800px;
+}
+
+.Apple--inside {
+  position: absolute;
+  top: 550px;
+  left: 400px;
+}
+.Apple--inside img {
+  width: 350px;
+  height: auto;
+  margin-left: 100px;
+}
+.Apple--inside h1 {
+  color: #fff;
+  margin: 10px;
+  font-size: 2rem;
+}
+.Apple--inside a {
+  text-decoration: none;
+  color: rgb(88, 143, 232);
+  margin: 20px 240px;
+}
+
+/* iphone 14 pro*/
+
+.iphone14Pro img {
+  height: 550px;
+  padding-bottom: 0;
+}
+.iphone14Pro--inside {
+  position: absolute;
+  top: 20px;
+  left: 400px;
+}
+#iphone14pro {
+  font-size: 4rem;
+  color: #fff;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 700;
+  margin-left: 90px;
+}
+.iphone14Pro--inside h1 {
+  color: #fff;
+  margin: 6px;
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 200px;
+  margin-bottom: 20px;
+}
+.iphone14Pro--inside a {
+  text-decoration: none;
+  font-weight: 300;
+  color: rgb(74, 136, 234);
+  margin: 30px -110px 0px 170px;
+}
+
+/*iPhone 14 */
+
+.iphone14 img {
+  padding: 0;
+  margin: 0px 150px;
+  width: 1000px;
+  opacity: 90%;
+  height: fit-content;
+}
+.iphone14--inside {
+  position: absolute;
+  top: 1500px;
+  left: 400px;
+}
+#iphone14 {
+  font-size: 3.2rem;
+  color: black;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 600;
+  margin-left: 150px;
+}
+.iphone14--inside h1 {
+  color: black;
+  margin: 6px;
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 200px;
+  margin-bottom: 20px;
+}
+.iphone14--inside a {
+  text-decoration: none;
+  font-weight: 380;
+  color: rgb(74, 136, 234);
+  margin: 30px -135px 0px 170px;
+}
+
+/*Watch series 8 */
+
+.Watch--inside {
+  position: absolute;
+  top: 2130px;
+  left: 210px;
+}
+
+.Watch--inside h1 {
+  color: #fff;
+  margin: 10px -15px 10px 32px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+.Watch--inside a {
+  text-decoration: none;
+  color: rgb(105, 153, 229);
+  margin: 20px -10px 0px 43px;
+  font-size: 15px;
+}
+.Watch--inside > img {
+  width: 150px;
+  height: auto;
+  margin-left: 60px;
+  padding: 0;
+}
+
+/* ipad */
+
+.ipad--inside {
+  position: absolute;
+  top: 2100px;
+  left: 680px;
+}
+#i-pad {
+  font-size: 2.5rem;
+  color: black;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 600;
+  margin-left: 280px;
+}
+.ipad--inside h1 {
+  color: black;
+  margin: 6px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+.ipad--inside a {
+  text-decoration: none;
+  color: rgb(80, 138, 231);
+  margin: 15px -200px 0px 233px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* MacBook Pro*/
+
+.MacBook--inside {
+  position: absolute;
+  top: 2740px;
+  left: 0px;
+}
+#MacBook {
+  font-size: 2.5rem;
+  color: white;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 600;
+  margin-left: 210px;
+}
+.MacBook--inside h1 {
+  color: white;
+  margin: 6px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 160px;
+  margin-bottom: 10px;
+}
+.MacBook--inside a {
+  text-decoration: none;
+  color: rgb(80, 138, 231);
+  margin: 15px -220px 0px 253px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Apple Watch pride */
+
+.AppleWatch--inside {
+  position: absolute;
+  top: 2750px;
+  left: 780px;
+}
+
+.AppleWatch--inside h1 {
+  color: black;
+  margin: 10px -15px 10px 152px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+.AppleWatch--inside a {
+  text-decoration: none;
+  color: rgb(105, 153, 229);
+  margin: 20px 0px 0px 83px;
+  font-size: 17px;
+  font-weight: 590;
+}
+.AppleWatch--inside > img {
+  width: 150px;
+  height: auto;
+  margin-left: 160px;
+  padding: 0;
+}
+
+/* ipad pro */
+
+.ipadPro--inside {
+  position: absolute;
+  top: 3370px;
+  left: 30px;
+}
+#ipad-pro {
+  font-size: 2.5rem;
+  color: white;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 600;
+  margin-left: 210px;
+}
+.inner {
+  display: flex;
+  flex-direction: row;
+}
+.ipadPro--inside h1 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 190px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.ipadPro--inside img {
+  margin-left: 5px;
+  margin-bottom: 12px;
+  width: 50px;
+  height: 50px;
+}
+.ipadPro--inside a {
+  text-decoration: none;
+  color: rgb(80, 138, 231);
+  margin: 25px -180px 0px 203px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/*HomePod*/
+
+.homepod--inside {
+  position: absolute;
+  top: 3367px;
+  left: 650px;
+}
+#homepod {
+  font-size: 2.4rem;
+  color: white;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-weight: 600;
+  margin-left: 280px;
+  margin-bottom: 10px;
+}
+.homepod--inside h1 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-left: 300px;
+  margin-bottom: 10px;
+}
+.homepod--inside a {
+  text-decoration: none;
+  color: rgb(80, 138, 231);
+  margin: 15px -240px 0px 280px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Footer */
+
+#footer {
+  background-color: rgba(227, 223, 223, 0.958);
+  margin-top: 30px;
+  opacity: 88%;
+  padding: 20px 200px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(227, 223, 223, 0.958);
+}

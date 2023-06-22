@@ -1,0 +1,26 @@
+var myArr=[60,70,80,97,86,87,76,54,43];
+var sum=0;
+for(var i=0;i<myArr.length;i++)
+{
+    sum+=myArr[i];
+}
+var avg=sum/myArr.length;
+console.log(avg);
+
+
+var myArr=[60,70,80,97,86,87,76,54,43];
+var max=0;
+for(var i=0;i<myArr.length;i++)
+{
+    if(max<myArr[i]){
+        max=myArr[i];
+    }
+}
+console.log(max);
+
+var myStr="GOD";
+var revStr="";
+for(var i=(myStr.length-1);i>=0;i--){
+    revStr+=myStr[i];
+}
+console.log(myStr +" created "+revStr);

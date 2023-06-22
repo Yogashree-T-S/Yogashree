@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(238, 223, 205);
+}
+
+.container {
+  display: flex;
+
+  margin: auto;
+  width: 50%;
+  height: 30%;
+  align-self: center;
+}
+.container > .image {
+  height: relative;
+  background-color: aquamarine;
+  width: 50%;
+}
+.image > img {
+  height: relative;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.container > .content {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  align-items: center;
+  font-family: Montserrat;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.details {
+  margin: 30px;
+}
+.details h3 {
+  color: hsl(228, 12%, 48%);
+  line-height: 40px;
+  font-size: 16px;
+}
+.details h1 {
+  font-family: Fraunces;
+  font-weight: bolder;
+  font-size: 35px;
+  padding: 8px 0px 15px 0px;
+}
+.details p {
+  padding: 5px 0px;
+  color: hsl(228, 12%, 48%);
+  font-size: 15px;
+}
+.shop {
+  margin: 30px;
+}
+#amount {
+  display: flex;
+  gap: 20px;
+}
+#amount h1 {
+  color: hsl(158, 66%, 22%);
+  font-family: Fraunces;
+}
+#amount h4 {
+  text-decoration: line-through;
+  padding: 12px;
+  font-size: 14px;
+  color: hsl(228, 12%, 48%);
+}
+button {
+  background-color: rgb(9, 42, 9);
+  height: 40px;
+  width: 240px;
+  margin-top: 15px;
+  border: hsl(158, 51%, 23%) solid 1px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+}
+button img {
+  padding-right: 15px;
+}
+@media screen and (max-width: 450px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .image {
+    height: 360px;
+    width: 290px;
+  }
+  .image img {
+    height: 260px;
+    width: 290px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    margin-left: auto;
+  }
+  .content {
+    width: 290px;
+    margin-top: -100px;
+    margin-left: relative;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .details {
+    font-size: 80%;
+  }
+}
